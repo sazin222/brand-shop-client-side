@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../Routes/Shared/Banner";
 import Navber from "../Routes/Shared/Navber";
 import Feature from "./Feature";
+import Footer from "../Routes/Shared/Footer";
 
 
 const Home = () => {
@@ -23,7 +24,9 @@ const Home = () => {
                    </Feature>)
                 }
             </div>
-        </div>
+        </div> 
+
+        <Footer></Footer>
            
         
         

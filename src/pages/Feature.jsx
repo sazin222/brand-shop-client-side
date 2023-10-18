@@ -1,8 +1,16 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
+
+// import BrandDetails from "./BrandDetails";
+
 const Feature = ({item}) => {
-    const {brand, image}= item
+    const {brand, image,id}= item
+
     return (
+        <> 
+        <Link to={`/product/${id}`}> 
         <div className="card mt-5 h-5/6  bg-base-100 shadow-xl">
   <figure><img src={image} alt="" /></figure>
   <div className="card-body">
@@ -11,6 +19,9 @@ const Feature = ({item}) => {
     </h2>
   </div>
 </div>
+        
+        </Link> 
+        </>
     );
 };
 

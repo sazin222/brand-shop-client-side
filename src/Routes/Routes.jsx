@@ -1,4 +1,4 @@
-import {
+ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Root from "../layout/Root";
@@ -9,6 +9,8 @@ import Register from "../pages/Register";
 import AddProduct from "../pages/AddProduct";
 import MyCart from "../pages/MyCart";
 import PrivetRoute from "./PrivetRoute";
+import BrandDetails from "../pages/BrandDetails";
+
 
   const Routes = createBrowserRouter([
     {
@@ -36,14 +38,19 @@ import PrivetRoute from "./PrivetRoute";
           </PrivetRoute>
         },
         {
+          path:"/product/:id",
+          element:<BrandDetails></BrandDetails>,
+          loader: ()=> fetch('/brandName.json')
+        },
+        {
           path: "/mycart",
-          element: <PrivetRoute>
-            <MyCart></MyCart>
-          </PrivetRoute>
+          element:<PrivetRoute>
+          <MyCart></MyCart>
+          </PrivetRoute>,
+          loader:()=> fetch('http://localhost:5000/product')
         }
       ]
     },
   ]);
 
-
-export default Routes;
+ export default Routes;        
