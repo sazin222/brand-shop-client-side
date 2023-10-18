@@ -6,6 +6,9 @@ import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import AddProduct from "../pages/AddProduct";
+import MyCart from "../pages/MyCart";
+import PrivetRoute from "./PrivetRoute";
 
   const Routes = createBrowserRouter([
     {
@@ -27,7 +30,16 @@ import Register from "../pages/Register";
           element: <Register></Register>
         },
         {
-          path:"/addproduct"
+          path:"/addproduct",
+          element: <PrivetRoute>
+            <AddProduct></AddProduct>
+          </PrivetRoute>
+        },
+        {
+          path: "/mycart",
+          element: <PrivetRoute>
+            <MyCart></MyCart>
+          </PrivetRoute>
         }
       ]
     },
