@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "brand": "Toyota",
+        "image": "https://i.ibb.co/zRRZjPK/joshua-koblin-eq-W1-MPin-EV4-unsplash.jpg"
+    },
+    {
+        "id": 2,
+        "brand": "Honda",
+        "image": "https://i.ibb.co/5Lh8WTB/hakon-sataoen-qyfco1nf-Mtg-unsplash.jpg"
+    },
+    {
+        "id": 3,
+        "brand": "Ford",
+        "image": "https://i.ibb.co/v4gzG95/dhiva-krishna-X16z-Xcbx-U4-U-unsplash.jpg"
+    },
+    {
+        "id": 4,
+        "brand": "Chevrolet",
+        "image": "https://i.ibb.co/QrbNJTF/jon-koop-kh-YVy-Hi-NZo0-unsplash.jpg"
+    },
+    {
+        "id": 5,
+        "brand": "Nissan",
+        "image": "https://i.ibb.co/BnPB9fL/joey-banks-YApi-Wyp0lqo-unsplash.jpg"
+    },
+    {
+        "id": 6,
+        "brand": "Volkswagen",
+        "image": "https://i.ibb.co/1M9mxk2/stefan-rodriguez-2-Aovfz-YV3rc-unsplash.jpg"
+    }
+]
