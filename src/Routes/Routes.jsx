@@ -25,6 +25,9 @@ import Register from "../pages/Register";
         {
           path:"/register",
           element: <Register></Register>
+        },
+        {
+          path:"/addproduct"
         }
       ]
     },

@@ -1,9 +1,59 @@
 import { Link } from "react-router-dom";
 import Navber from "../Routes/Shared/Navber";
+import { AuthContext } from "../Authprovider/AuthProvider";
+import { useContext } from "react";
+import Swal from "sweetalert2";
 
 
 
 const Register = () => {
+
+    const {createUser,handleUpdateProfile}= useContext(AuthContext)
+     
+    const handelCreateUser = e =>{
+      e.preventDefault() 
+      const name= e.target.name.value
+      const photo= e.target.photo.value
+      const email = e.target.email.value
+      const password = e.target.password.value
+       
+      if(!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?]).{7,}$/.test(password)){
+         Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: ' Please provide 6 characters or more in length, a capital letter and a special characters'
+           
+            
+          }) 
+          return 
+      }
+
+
+      createUser(email,password)
+      .then(result=>{
+        handleUpdateProfile(name, photo)
+        console.log(result.user);
+        Swal.fire({
+            title: 'Successfully Register your account',
+            width: 600,
+            padding: '3em',
+            color: '#716add',
+            background: '#fff url(/images/trees.png)',
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url("/images/nyan-cat.gif")
+              left top
+              no-repeat
+            `
+          })
+      })
+      .catch(error=>{
+        console.log(error);
+      })
+
+    }
+
+
     return (
         <div className="">
         <Navber></Navber>
@@ -16,7 +66,7 @@ const Register = () => {
               </div>
               <div className="card flex-shrink-0 w-full max-w-md shadow-white bg-base-100">
              
-                <form className="card-body">
+                <form onSubmit={handelCreateUser} className="card-body">
                 <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>

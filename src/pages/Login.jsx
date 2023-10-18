@@ -1,8 +1,63 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navber from "../Routes/Shared/Navber";
 import {  FcGoogle } from 'react-icons/fc';
+import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../Authprovider/AuthProvider";
 
 const Login = () => {
+
+    const {Login,googleLogin} =useContext(AuthContext)
+    const location = useLocation()
+    const navigate= useNavigate()
+    const handelLogin =e=>{
+        e.preventDefault()
+        const email= e.target.email.value 
+        const password= e.target.password.value 
+
+        Login(email,password)
+        .then(result=>{
+            console.log('successfully',result.user);
+            navigate(location?.state ? location.state : '/')
+            Swal.fire({
+                title: 'Successfully Logged',
+                width: 600,
+                padding: '3em',
+                color: '#716add',
+                background: '#fff url(/images/trees.png)',
+                backdrop: `
+                  rgba(0,0,123,0.4)
+                  url("/images/nyan-cat.gif")
+                  left top
+                  no-repeat
+                `  
+                  
+              })
+        })
+        .catch(error=>{
+            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please provide correct email and password! Please Try Again',
+                
+              })
+        })
+    } 
+
+    const handelGooglelogin= ()=>{
+        googleLogin()
+        .then(result=>{
+            console.log(result.user);
+           
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
+
+
+
     return (
        <div className="">
     <Navber></Navber>
@@ -15,7 +70,7 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-md shadow-white bg-base-100">
          
-            <form className="card-body">
+            <form onSubmit={handelLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -34,7 +89,7 @@ const Login = () => {
               </div>
             </form>
             <p className="text-center mb-3 ">Do not Have An Account ? <Link to={"/register"} className="text-red-400">Register</Link></p>
-         <p className="text-center mb-3 "> <button className="btn bg-white border-2 text-black">
+         <p className="text-center mb-3 "> <button onClick={handelGooglelogin} className="btn bg-white border-2 text-black">
             <FcGoogle className="text-3xl mr-3"></FcGoogle>
             Continue With Google</button></p>
           </div>

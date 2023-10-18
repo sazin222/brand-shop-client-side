@@ -1,22 +1,34 @@
-import {  NavLink } from "react-router-dom";
+import {  Link, NavLink } from "react-router-dom";
 import logo from '../../assets/7412668.jpg'
+import { useContext } from "react";
+import { AuthContext } from "../../Authprovider/AuthProvider";
 
 const Navber = () => {
+  const{logOut,user} = useContext(AuthContext)
   
+  const handelSingout= e =>{
+    e.preventDefault()
+    logOut()
+    .then(result=>{
+      console.log(result);
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+  }
 
     const Navlinks= <> 
      
      <li> <NavLink to={"/"} >HOME</NavLink>  </li>
-     <li> <NavLink to={"/about"} >ABOUT</NavLink>  </li>
      <li> <NavLink to={"/login"} >LOG IN</NavLink>  </li>
-     
-     {/* { 
+
+     { 
     user && 
      <> 
-         <li> <NavLink to={"/blog"}>BLOG</NavLink></ li> 
-         <li> <NavLink to={"/gallery"}>GALLERY</NavLink></li> 
+         <li> <NavLink to={"/mycart"}>MY CART</NavLink></ li> 
+         <li> <NavLink to={"/addproduct"}>ADD PRODUCT</NavLink></li> 
       </>
-    } */}
+    }
      
     </>
 
@@ -43,6 +55,29 @@ const Navber = () => {
     </ul>
   </div>
   <div className="navbar-end">
+  {
+      user?.email ? <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+   <img src={user.photoURL} alt={user.displayName} />
+       </div>
+        </label>
+          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+           <li>
+         <button className="btn btn-sm  ">{user.displayName}</button>
+             </li>
+               <li>
+            <button className="btn bg-orange-500 text-white"
+             onClick={handelSingout}
+              >LOG OUT</button>
+              </li>
+            </ul>
+         </div>
+            :
+            <Link to='/login'>
+              <button className="btn bg-orange-500 text-white">LOG IN</button>
+               </Link>
+                    }
   
   </div>
 </div>
