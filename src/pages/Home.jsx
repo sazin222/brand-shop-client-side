@@ -12,7 +12,7 @@ const Home = () => {
   const brands = useLoaderData()
     console.log(brands);
     return (
-        <div className="min-h-screen">
+        <div className="min-h-scree">
         <Navber></Navber>
         <Banner></Banner> 
         <div className="mt-6 px-3">
