@@ -36,6 +36,8 @@ const AddProduct = () => {
                     icon: 'Success',
                     confirmButtonText: 'Cool'
                   })
+
+                  form.reset()
             }
         })
         

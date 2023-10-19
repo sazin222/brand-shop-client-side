@@ -39,7 +39,9 @@ import BrandDetails from "../pages/BrandDetails";
         },
         {
           path:"/product/:id",
-          element:<BrandDetails></BrandDetails>,
+          element: <PrivetRoute>
+            <BrandDetails></BrandDetails>
+          </PrivetRoute>,
           loader: ()=> fetch('/brandName.json')
         },
         {

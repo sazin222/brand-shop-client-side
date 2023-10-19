@@ -2,27 +2,25 @@
 
 import { Link } from "react-router-dom";
 
-
 // import BrandDetails from "./BrandDetails";
 
-const Feature = ({item}) => {
-    const {brand, image,id}= item
+const Feature = ({ item }) => {
+  const { brand, image, id } = item;
 
-    return (
-        <> 
-        <Link to={`/product/${id}`}> 
+  return (
+    <>
+      <Link to={`/product/${id}`}>
         <div className="card mt-5 h-5/6  bg-base-100 shadow-xl">
-  <figure><img src={image} alt="" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">
-      {brand}
-    </h2>
-  </div>
-</div>
-        
-        </Link> 
-        </>
-    );
+          <figure>
+            <img src={image} alt="" />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{brand}</h2>
+          </div>
+        </div>
+      </Link>
+    </>
+  );
 };
 
 export default Feature;
