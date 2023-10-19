@@ -4,6 +4,8 @@ import Banner from "../Routes/Shared/Banner";
 import Navber from "../Routes/Shared/Navber";
 import Feature from "./Feature";
 import Footer from "../Routes/Shared/Footer";
+import ClientReveiw from "./ClientReveiw";
+import ChooseUs from "./ChooseUs";
 
 
 const Home = () => {
@@ -25,6 +27,8 @@ const Home = () => {
                 }
             </div>
         </div> 
+        <ChooseUs></ChooseUs>
+        <ClientReveiw></ClientReveiw>
 
         <Footer></Footer>
            

@@ -21,7 +21,7 @@ const ProductDetails = () => {
             {detailProduct.brandname}
             <div className="badge badge-secondary">BRAND</div>
           </h2>
-          <p className="font-semibold">{detailProduct.name}</p>
+          <p className="font-semibold">Name: {detailProduct.name}</p>
           <p className="font-semibold">Price: ${detailProduct.price}</p>
           <p>{detailProduct.description}</p>
           <div className="rating">
