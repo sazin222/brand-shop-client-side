@@ -20,7 +20,7 @@ const MycartDetails = ({ item ,products,setProducts }) => {
    }).then((result) => {
      if (result.isConfirmed) {
     
-      fetch(`http://localhost:5000/product/${id}`,{
+      fetch(`https://automotive-brand-server-side.vercel.app/product/${id}`,{
          method: 'DELETE'
       })
       .then(res=> res.json())

@@ -42,12 +42,12 @@ import ProductDetails from "../pages/ProductDetails";
         {
            path:"/updateproduct/:id",
            element: <UpdateProduct></UpdateProduct>,
-           loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
+           loader: ({params})=> fetch(`https://automotive-brand-server-side.vercel.app/product/${params.id}`)
         },
         {
           path:"/productdetails/:id",
           element:<ProductDetails></ProductDetails>,
-          loader: ({params})=> fetch(`http://localhost:5000/productbrand/${params.id}`)
+          loader: ({params})=> fetch(`https://automotive-brand-server-side.vercel.app/productbrand/${params.id}`)
         },
        
         {
@@ -55,7 +55,7 @@ import ProductDetails from "../pages/ProductDetails";
           element: <PrivetRoute>
             <BrandDetails></BrandDetails>
           </PrivetRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/products/${params.brand}`)
+          loader: ({params})=> fetch(`https://automotive-brand-server-side.vercel.app/products/${params.brand}`)
         },
         
         {
@@ -63,7 +63,7 @@ import ProductDetails from "../pages/ProductDetails";
           element:<PrivetRoute>
           <MyCart></MyCart>
           </PrivetRoute>,
-          loader:()=> fetch('http://localhost:5000/product')
+          loader:()=> fetch('https://automotive-brand-server-side.vercel.app/product')
         }
       ]
     },

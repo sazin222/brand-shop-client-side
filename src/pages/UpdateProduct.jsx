@@ -32,7 +32,7 @@ const UpdateProduct = () => {
     console.log(UpdateProduct);
 
     
-    fetch(`http://localhost:5000/product/${_id}`,{
+    fetch(`https://automotive-brand-server-side.vercel.app/${_id}`,{
 
     method: 'PUT',
     headers:{
