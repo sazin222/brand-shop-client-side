@@ -1,5 +1,6 @@
-import { useState } from 'react';
+/* eslint-disable react/prop-types */
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const MycartDetails = ({ item ,products,setProducts }) => {
@@ -44,11 +45,11 @@ const MycartDetails = ({ item ,products,setProducts }) => {
 
   }
   return (
-    <div className="card h-4/5 bg-base-100 shadow-xl">
-      <figure className="h-4/5">
+    <div className="card  bg-base-100 shadow-xl">
+      <figure className="">
         <img src={image} alt="Shoes" />
       </figure>
-      <div className="card-body">
+      <div className="card-body ">
         <h2 className="card-title">
           {brandname}
           <div className="badge badge-secondary">BRAND</div>
@@ -89,11 +90,13 @@ const MycartDetails = ({ item ,products,setProducts }) => {
             Delete  <AiFillDelete></AiFillDelete>
           </button>
         
+         <Link to={`/updateProduct/${_id}`}> 
          
-         
-          <button className='flex items-center justify-center btn'>
+         <button className='flex items-center justify-center btn'>
             Update <AiFillEdit></AiFillEdit>
           </button>
+         </Link>
+          
          </div>
       </div>
     </div>

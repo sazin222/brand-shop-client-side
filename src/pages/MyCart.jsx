@@ -29,7 +29,7 @@ const MyCart = () => {
         </MycartDetails>)
       }
 
-     </div>
+     </div> 
 
       </div>
       
