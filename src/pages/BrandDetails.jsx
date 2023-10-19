@@ -1,73 +1,46 @@
-import { useLoaderData, useParams } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import BrandSlider from "./brandSlider";
 import Navber from "../Routes/Shared/Navber";
-import { Swiper, SwiperSlide, } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Autoplay} from 'swiper/modules';
-
+import { AiFillEdit } from "react-icons/ai";
 
 
 const BrandDetails = () => {
-    const {id} = useParams()
-    const allbrand = useLoaderData()
-    const finddata= allbrand.find(i=>i.id == id)
-    return (
-        <div className="grid gap-2 grid-cols-1  bg-black"> 
-        <Navber></Navber>
-           
-           <Swiper 
-           
-           spaceBetween={10}
-           centeredSlides={true}
-           autoplay={{
-             delay: 2500,
-             disableOnInteraction: false,
-           }}
-           pagination={{
-             clickable: true,
-           }}
-           navigation={true}
-           modules={[Autoplay]}
-           className="mySwiper swiper-wrapper "
-      slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-           
-           > 
-          <SwiperSlide> 
-          
-          <div className="hero  min-h-screen bg-black card   shadow-xl image-full">
-  <figure className="h-1/2 w-1/2"><img src={finddata.image2} alt="" /></figure>
-  <div className="card-body">
-    <h2 className="card-title"></h2>
-    <p> New collection</p>
-  </div>
-</div>
+  const allbrand = useLoaderData();
+  console.log(allbrand);
 
-          </SwiperSlide>
-       <SwiperSlide>
-       <div className="hero  min-h-screen  bg-black card  shadow-xl image-full">
-  <figure className="h-1/2 w-1/2"><img src={finddata.image3} alt="" /></figure>
-  <div className="card-body">
-    <h2 className="card-title"></h2>
-    <p> New collection</p>
-  </div>
-</div>
-       </SwiperSlide>
-        <SwiperSlide>
-        <div className="hero min-h-screen  bg-black card   shadow-xl image-full">
-  <figure className="h-1/2 w-1/2"><img src={finddata.image4} alt="" /></figure>
-  <div className="card-body">
-    <h2 className="card-title"></h2>
-    <p> New collection</p>
-  </div>
-</div>
-
-        </SwiperSlide>
-           </Swiper>
-
-         </div>
-    );
+  return (
+   <div className="bg-black"> 
+   <Navber></Navber>
+     <BrandSlider></BrandSlider>
+   <div className="grid grid-cols-1 gap-3 px-3 lg:grid-cols-3 mt-5">
+      
+      {
+        allbrand.map(brand=> <div key={brand._id} className="card card-compact  bg-base-100 shadow-xl">
+        <figure>
+          <img src={brand.image} alt="Shoes" />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">{brand.brandname}</h2>
+          <p>{brand.name}</p>
+          <div className="card-actions justify-between ">
+            <Link to={`/productdetails/${brand._id}`}><button className="btn ">View Details</button></Link>
+            <Link to={`/updateProduct/${brand._id}`}> 
+         
+         <button className='flex items-center justify-center btn'>
+            Update <AiFillEdit></AiFillEdit>
+          </button>
+         </Link> 
+          </div>
+        </div>
+      </div> )
+      }
+      
+    </div>
+   
+   </div>
+  );
 };
 
 export default BrandDetails;

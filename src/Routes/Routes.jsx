@@ -11,6 +11,7 @@ import MyCart from "../pages/MyCart";
 import PrivetRoute from "./PrivetRoute";
 import BrandDetails from "../pages/BrandDetails";
 import UpdateProduct from "../pages/UpdateProduct";
+import ProductDetails from "../pages/ProductDetails";
 
 
   const Routes = createBrowserRouter([
@@ -44,12 +45,19 @@ import UpdateProduct from "../pages/UpdateProduct";
            loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
         },
         {
-          path:"/product/:id",
+          path:"/productdetails/:id",
+          element:<ProductDetails></ProductDetails>,
+          loader: ({params})=> fetch(`http://localhost:5000/productbrand/${params.id}`)
+        },
+       
+        {
+          path:"/product/:brand",
           element: <PrivetRoute>
             <BrandDetails></BrandDetails>
           </PrivetRoute>,
-          loader: ()=> fetch('/brandName.json')
+          loader: ({params})=> fetch(`http://localhost:5000/products/${params.brand}`)
         },
+        
         {
           path: "/mycart",
           element:<PrivetRoute>

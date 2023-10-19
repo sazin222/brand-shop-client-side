@@ -4,9 +4,10 @@ import { useLoaderData } from "react-router-dom";
 
 const UpdateProduct = () => {
     const products = useLoaderData()
-    
+
     console.log(products);
     const {image, brandname, name, type, price, description, rating, _id} = products
+    console.log(_id);
   const handelUpdateProduts = (event) => {
     event.preventDefault();
     const form = event.target;

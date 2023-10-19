@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { AiFillDelete, } from 'react-icons/ai';
+// import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const MycartDetails = ({ item ,products,setProducts }) => {
@@ -89,14 +89,6 @@ const MycartDetails = ({ item ,products,setProducts }) => {
           <button onClick= {()=>handelDelete(_id)}className='flex items-center justify-center btn'> 
             Delete  <AiFillDelete></AiFillDelete>
           </button>
-        
-         <Link to={`/updateProduct/${_id}`}> 
-         
-         <button className='flex items-center justify-center btn'>
-            Update <AiFillEdit></AiFillEdit>
-          </button>
-         </Link>
-          
          </div>
       </div>
     </div>
