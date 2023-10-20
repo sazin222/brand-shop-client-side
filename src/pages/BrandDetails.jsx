@@ -22,8 +22,38 @@ const BrandDetails = () => {
           <img src={brand.image} alt="Shoes" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{brand.brandname}</h2>
-          <p>{brand.name}</p>
+          <h2 className="card-title font-bold">{brand.brandname}</h2>
+          <p className="font-semibold">Name:{brand.name}</p>
+          <p className="font-semibold">Type: {brand.type}</p>
+          <p className="font-semibold">Price: {brand.price}</p>
+          <div className="rating">
+            <input
+              type="radio"
+              name={brand.rating}
+              className="mask mask-star-2 bg-orange-400"
+            />
+            <input
+              type="radio"
+              name={brand.rating}
+              className="mask mask-star-2 bg-orange-400"
+              checked
+            />
+            <input
+              type="radio"
+              name={brand.rating}
+              className="mask mask-star-2 bg-orange-400"
+            />
+            <input
+              type="radio"
+              name={brand.rating}
+              className="mask mask-star-2 bg-orange-400"
+            />
+            <input
+              type="radio"
+              name={brand.rating}
+              className="mask mask-star-2 bg-orange-400"
+            />
+          </div>
           <div className="card-actions justify-between ">
             <Link to={`/productdetails/${brand._id}`}><button className="btn ">View Details</button></Link>
             <Link to={`/updateProduct/${brand._id}`}> 

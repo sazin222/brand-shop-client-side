@@ -8,11 +8,13 @@ import ClientReveiw from "./ClientReveiw";
 import ChooseUs from "./ChooseUs";
 
 
+
 const Home = () => {
+
   const brands = useLoaderData()
     console.log(brands);
     return (
-        <div className="min-h-scree">
+        <div className="min-h-screen bg-white dark:bg-black ">
         <Navber></Navber>
         <Banner></Banner> 
         <div className="mt-6 px-3">

@@ -69,4 +69,4 @@ import ProductDetails from "../pages/ProductDetails";
     },
   ]);
 
- export default Routes;        
+ export default Routes;           
