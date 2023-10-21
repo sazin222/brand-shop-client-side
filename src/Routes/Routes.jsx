@@ -58,12 +58,19 @@ import ProductDetails from "../pages/ProductDetails";
           loader: ({params})=> fetch(`https://automotive-brand-server-side.vercel.app/products/${params.brand}`)
         },
         
+        // {
+        //   path: "/mycart",
+        //   element:<PrivetRoute>
+        //   <MyCart></MyCart>
+        //   </PrivetRoute>,
+        //   loader:()=> fetch('https://automotive-brand-server-side.vercel.app/product')
+        // }
         {
           path: "/mycart",
           element:<PrivetRoute>
           <MyCart></MyCart>
           </PrivetRoute>,
-          loader:()=> fetch('https://automotive-brand-server-side.vercel.app/product')
+          loader:()=> fetch('https://automotive-brand-server-side.vercel.app/brand')
         }
       ]
     },

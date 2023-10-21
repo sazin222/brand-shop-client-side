@@ -5,7 +5,8 @@ import Swal from 'sweetalert2';
 
 const MycartDetails = ({ item ,products,setProducts }) => {
   const { image, brandname, name, price, description, rating, _id } = item;
-
+  
+  console.log(_id);
 
   const handelDelete = id =>{
     console.log(id);
@@ -20,7 +21,7 @@ const MycartDetails = ({ item ,products,setProducts }) => {
    }).then((result) => {
      if (result.isConfirmed) {
     
-      fetch(`https://automotive-brand-server-side.vercel.app/product/${id}`,{
+      fetch(`https://automotive-brand-server-side.vercel.app/brands/${id}`,{
          method: 'DELETE'
       })
       .then(res=> res.json())

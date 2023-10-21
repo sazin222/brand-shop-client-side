@@ -1,9 +1,45 @@
 import { useLoaderData } from "react-router-dom";
 import Navber from "../Routes/Shared/Navber";
+import { useContext } from "react";
+import { AuthContext } from "../Authprovider/AuthProvider";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
+  const {user}= useContext(AuthContext)
+  const email= user.email
+  console.log(email);
   const detailProduct = useLoaderData();
   console.log(detailProduct);
+
+
+   
+  const handlePostDetailProduct = async () => {
+    try {
+      const dataToPost = { email, ...detailProduct };
+
+      const response = await fetch('https://automotive-brand-server-side.vercel.app/brand', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToPost),
+      });
+
+      if (response.ok) {
+        Swal.fire({
+          title: 'Success',
+          text: 'Produced added successfully',
+          icon: 'Success',
+          confirmButtonText: 'Cool'
+        })
+      } else {
+        // Handle errors
+      }
+    } catch (error) {
+      // Handle network or other errors
+    }
+  };
+
   return (
     <div>
       <Navber></Navber>
@@ -49,6 +85,7 @@ const ProductDetails = () => {
                 className="mask mask-star-2 bg-orange-400"
               />
             </div>
+           <button onClick={handlePostDetailProduct} className="btn">Add to Cart</button>
           </div>
         </div>
       </div>
